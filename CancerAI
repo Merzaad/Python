@@ -1,9 +1,9 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
-dataset=pd.read_csv('cancer.csv')
-x=dataset.drop(columns=['diagnosis(1=m, 0=b)'])
-y=dataset['diagnosis(1=m, 0=b)']
+data=pd.read_csv('Cancer.csv')
+x=data.drop(columns=['diagnosis(1=m, 0=b)'])
+y=data['diagnosis(1=m, 0=b)']
 
 x_train , x_test , y_train , y_test = train_test_split(x,y,test_size=0.2)
 
@@ -18,5 +18,5 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 model.fit(x_train,y_train, epochs=100 )
 model.evaluate(x_test,y_test)
 
-#d_prediction = model.predict(d)
-#print(pd.DataFrame(d_prediction))
+#prediction = model.predict(dataset)
+#print(pd.DataFrame(prediction))
