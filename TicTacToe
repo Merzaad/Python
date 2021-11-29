@@ -30,7 +30,7 @@ def can_win(brd,plyr,mve):
         break
     if win == True:break
   return win
-    
+
 def make_move(brd,plyr,mve,undo=False):
   if can_move(brd,plyr,mve):
     brd[mve-1]=plyr
@@ -39,6 +39,7 @@ def make_move(brd,plyr,mve,undo=False):
       brd[mve-1]=mve-1
     return(True,win)
   else:return(False,False)
+  
 def computer_move():
   move=-1
   for i in range(1,10):
@@ -55,7 +56,6 @@ def computer_move():
       if can_move(Board,Computer,i):
         move=i
   return make_move(Board,Computer,move)
-
 
 while space_exist():
   print_board()
