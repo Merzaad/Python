@@ -17,5 +17,3 @@ while 1<2:
       break
     else:
       print(ct,'does not added')
-    
-
