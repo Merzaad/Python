@@ -1,0 +1,26 @@
+import random
+def game():
+    rndm=random.randint(1,10)
+    plyrnm=input("What is your name? ")
+    ask=input("Hello {} wanna play? y/n " .format(plyrnm))
+
+    atmpts=0
+    while ask.lower()=="y":
+        
+    
+        gss=input("guess the number")
+        if int(gss)==rndm:
+            print("Yes thats correct, you tried {} times".format(atmpts))
+            atmpts=0
+            break
+        if int(gss)>rndm:
+            print("its lower ")
+            atmpts+=1
+        if int(gss)<rndm:
+            print("its higher ")
+            atmpts+=1
+    else:
+        print("cya")
+        
+game()
+
