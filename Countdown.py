@@ -18,10 +18,13 @@ def countdown(time_sec):
 
 while True:
     try:
-       input_time=int(input('time in sec? '))
+       a=input('time in sec? or exit ')
+       if str.lower(a) == 'exit':
+            break
+       input_time=int(a)
        countdown(input_time)
     except:
-        print('spmething went wrong')
+        print('something went wrong')
         pass
     else:
         break
