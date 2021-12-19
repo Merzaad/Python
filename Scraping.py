@@ -12,5 +12,5 @@ for job_element in job_elements:
     a.append(title_element.text.strip())
 print(a)
 
-#df = pd.DataFrame(a,columns=['Titles'])
-#df.to_csv('zoomg.csv' , index = False)
+#df = pd.DataFrame(a,columns=['Title'])
+#df.to_csv('yahoo_news.csv' , index = False)
