@@ -1,19 +1,16 @@
 import requests
+import pandas as pd 
 from bs4 import BeautifulSoup 
-
-url = 'https://realpython.github.io/fake-jobs/'
+url = 'https://news.yahoo.com/'
 page = requests.get(url)
-html_str = page.text
 soup = BeautifulSoup(page.content,'html.parser')
-results = soup.find(id="ResultsContainer")
-job_elements = results.find_all("div", class_="card-content")
+results = soup.find(id="YDC-Stream")
+job_elements = results.find_all("div", class_="Cf")
+a= []
+for job_element in job_elements:
+    title_element = job_element.find("h3")
+    a.append(title_element.text.strip())
+print(a)
 
-for job_element in job_elements:
-    print(job_element, end="\n"*2)
-for job_element in job_elements:
-    title_element = job_element.find("h2", class_="title")
-    company_element = job_element.find("h3", class_="company")
-    location_element = job_element.find("p", class_="location")
-    print(title_element.text.strip())
-    print(company_element.text.strip())
-    print(location_element.text.strip())
+#df = pd.DataFrame(a,columns=['Titles'])
+#df.to_csv('zoomg.csv' , index = False)
